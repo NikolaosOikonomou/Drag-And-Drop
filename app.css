@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  background-color:#333;
+}
+
+#myTitle{
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+}
+#myTitle > h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+  color: rgba(123, 150, 174, 0.778);
+}
+#myTitle > h3{
+  font-family: Arial, Helvetica, sans-serif;
+  color:  rgba(123, 150, 174, 0.778);
+}
+
+#myContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#redBox,
+#blueBox {
+  min-height: 0vh;
+  max-width: 50vh;
+  min-width: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 5px;
+  border:3px solid;
+  border-radius: 15px;
+  margin-top: 130px;
+  
+}
+#redBox{
+  background-color: rgb(255, 81, 81);
+}
+
+#blueBox {
+  background-color: rgb(80, 80, 243);
+}
+
+.number,
+.letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 90px;
+  border: 2px solid;
+  border-radius: 8px;
+  background-color: aliceblue;
+  font-weight: bolder;
+  cursor: move;
+}
+
+.draggable.dragging{
+  opacity: .5;
+  transition: 0.8s;
+}
+
