@@ -3,18 +3,15 @@ const blueBox = document.getElementById('blueBox');
 const containers = document.querySelectorAll('.container');
 const dragableItems = document.querySelectorAll('.draggable');
 
-const smBoxesValueCheck = () => {
+const smallBoxesValueCheck = () => {
   let redDivsTxtContent = [];
   let blueDivsTxtContent = [];
+  redBox.querySelectorAll('div').forEach(box => redDivsTxtContent.push(box.textContent));
+  blueBox.querySelectorAll('div').forEach(box => blueDivsTxtContent.push(box.textContent));
   let tempRedArray = [];
   let tempBlueArray = [];
-  const redBoxValues = redBox.querySelectorAll('div');
-  const blueBoxValues = blueBox.querySelectorAll('div');
-  redBoxValues.forEach(box => redDivsTxtContent.push(box.textContent));
-  blueBoxValues.forEach(box => blueDivsTxtContent.push(box.textContent));
 
   for (let i = 0; i < redDivsTxtContent.length; i++) {
-
     if (isNaN(redDivsTxtContent[i])) {
       tempRedArray.push(redDivsTxtContent[i])
       console.log(tempRedArray);
@@ -26,22 +23,21 @@ const smBoxesValueCheck = () => {
       tempBlueArray.length == blueDivsTxtContent.length && redDivsTxtContent.length == 8) {
       alert('Well Done!!\nYou have successfully match the boxes!');
     }
-
   }
 
 }
 
 // -----   Small boxes inside the 2 Big boxes
 dragableItems.forEach(ele => {
-  ele.addEventListener('dragstart', event => {
+  ele.addEventListener('dragstart', () => {
     ele.classList.add('dragging');
   });
 });
 
 dragableItems.forEach(ele => {
-  ele.addEventListener('dragend', event => {
+  ele.addEventListener('dragend', () => {
     ele.classList.remove('dragging');
-    smBoxesValueCheck();
+    smallBoxesValueCheck();
   });
 });
 
@@ -51,6 +47,5 @@ containers.forEach(container => {
     event.preventDefault();
     const draggedItem = document.querySelector('.dragging');
     container.appendChild(draggedItem);
-
   })
 })
